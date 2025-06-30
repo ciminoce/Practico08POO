@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ejercicio04W.Datos\Ejercicio04W.Datos.csproj" />
     <ProjectReference Include="..\Ejercicio04W.Entidades\Ejercicio04W.Entidades.csproj" />
   </ItemGroup>
 

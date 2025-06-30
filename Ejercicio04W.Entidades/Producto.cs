@@ -11,7 +11,9 @@ namespace Ejercicio04W.Entidades
         public int Stock { get; set; }
 
 
-        public abstract decimal CalcularPrecioFinal();
+        public virtual decimal CalcularPrecioFinal() {
+            return PrecioBase;
+        }
         public abstract string InformarDatosEspecificos();
 
         public abstract IEnumerable<ValidationResult> Validate(ValidationContext validationContext);

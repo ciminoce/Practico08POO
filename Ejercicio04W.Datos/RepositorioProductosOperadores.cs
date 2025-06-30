@@ -4,34 +4,121 @@ namespace Ejercicio04W.Datos
 {
     public class RepositorioProductosOperadores : IRepositorioProductos
     {
-        public void Agregar(Producto producto)
+        private List<Producto> productos;
+        public RepositorioProductosOperadores()
         {
-            throw new NotImplementedException();
-        }
+            productos = new List<Producto>
+            {
+                new Alimento
+                {
+                    Codigo = "A1001",
+                    Nombre = "Pan lactal",
+                    PrecioBase = 450,
+                    Stock = 50,
+                    FechaVencimiento = DateTime.Today.AddDays(7)
+                },
+                new Alimento
+                {
+                    Codigo = "A1002",
+                    Nombre = "Leche entera",
+                    PrecioBase = 600,
+                    Stock = 30,
+                    FechaVencimiento = DateTime.Today.AddDays(3)
+                },
+                new Bebida
+                {
+                    Codigo = "B2001",
+                    Nombre = "Agua mineral",
+                    PrecioBase = 350,
+                    Stock = 100,
+                    EsAlcoholica = false
+                },
+                new Bebida
+                {
+                    Codigo = "B2002",
+                    Nombre = "Vino tinto",
+                    PrecioBase = 1200,
+                    Stock = 20,
+                    EsAlcoholica = true
+                },
+                new ArticuloDeLimpieza
+                {
+                    Codigo = "L3001",
+                    Nombre = "Lavandina",
+                    PrecioBase = 300,
+                    Stock = 40,
+                    EsBiodegradable = false
+                },
+                new ArticuloDeLimpieza
+                {
+                    Codigo = "L3002",
+                    Nombre = "Jabón ecológico",
+                    PrecioBase = 500,
+                    Stock = 25,
+                    EsBiodegradable = true
+                },
+                new Alimento
+                {
+                    Codigo = "A1003",
+                    Nombre = "Queso cremoso",
+                    PrecioBase = 950,
+                    Stock = 15,
+                    FechaVencimiento = DateTime.Today.AddDays(5)
+                },
+                new Bebida
+                {
+                    Codigo = "B2003",
+                    Nombre = "Cerveza rubia",
+                    PrecioBase = 900,
+                    Stock = 60,
+                    EsAlcoholica = true
+                },
+                new ArticuloDeLimpieza
+                {
+                    Codigo = "L3003",
+                    Nombre = "Detergente líquido",
+                    PrecioBase = 420,
+                    Stock = 35,
+                    EsBiodegradable = true
+                },
+                new Alimento
+                {
+                    Codigo = "A1004",
+                    Nombre = "Yogur bebible",
+                    PrecioBase = 480,
+                    Stock = 45,
+                    FechaVencimiento = DateTime.Today.AddDays(6)
+                }
+            };
 
-        public void Editar(Producto producto)
+        }
+        private Producto? this[string codigo]
         {
-            throw new NotImplementedException();
+            get
+            {
+                return productos.FirstOrDefault(p => p.Codigo == codigo);
+            }
         }
-
-        public void Eliminar(string codigo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Existe(string codigo)
-        {
-            throw new NotImplementedException();
-        }
-
         public Producto? ObtenerPorCodigo(string codigo)
         {
-            throw new NotImplementedException();
+            return this[codigo];
         }
 
         public List<Producto> ObtenerTodos(string? tipoProducto = null)
         {
-            throw new NotImplementedException();
+            IQueryable<Producto> query=productos.AsQueryable();
+            switch (tipoProducto)
+            {
+                case "Alimento":
+                    return query.Where(p => p is Alimento).ToList();
+                case "ArticuloDeLimpieza":
+                    return query.Where(p => p is ArticuloDeLimpieza).ToList();
+                case "Bebida":
+                    return query.Where(p => p is Bebida).ToList();
+                default:
+                    break;
+            }
+            return query.ToList();
         }
     }
 }

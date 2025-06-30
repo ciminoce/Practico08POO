@@ -1,3 +1,7 @@
+using Ejercicio04W.Ioc;
+using Ejercicio04W.Servicios;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Ejercicio04.Windows
 {
     internal static class Program
@@ -8,10 +12,12 @@ namespace Ejercicio04.Windows
         [STAThread]
         static void Main()
         {
+            IServiceProvider serviceProvider = DI.Configurar();
+            var servicioProductos = serviceProvider.GetRequiredService<IServicioProductos>();
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmProductos());
+            Application.Run(new FrmProductos(servicioProductos));
         }
     }
 }

@@ -40,13 +40,13 @@
             toolStrip1 = new ToolStrip();
             tsbDetalles = new ToolStripButton();
             statusStrip1 = new StatusStrip();
+            LblStatus = new ToolStripStatusLabel();
             dgvDatos = new DataGridView();
             colCodigo = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colPrecio = new DataGridViewTextBoxColumn();
             colStock = new DataGridViewTextBoxColumn();
             colTipo = new DataGridViewTextBoxColumn();
-            LblStatus = new ToolStripStatusLabel();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
@@ -96,6 +96,7 @@
             TsbFiltrar.Size = new Size(44, 59);
             TsbFiltrar.Text = "Filtrar";
             TsbFiltrar.TextImageRelation = TextImageRelation.ImageAboveText;
+            TsbFiltrar.Click += TsbFiltrar_Click;
             // 
             // TsbActualizar
             // 
@@ -106,6 +107,7 @@
             TsbActualizar.Size = new Size(63, 59);
             TsbActualizar.Text = "Actualizar";
             TsbActualizar.TextImageRelation = TextImageRelation.ImageAboveText;
+            TsbActualizar.Click += TsbActualizar_Click;
             // 
             // toolStripSeparator2
             // 
@@ -121,6 +123,7 @@
             TsbCerrar.Size = new Size(44, 59);
             TsbCerrar.Text = "Cerrar";
             TsbCerrar.TextImageRelation = TextImageRelation.ImageAboveText;
+            TsbCerrar.Click += TsbCerrar_Click;
             // 
             // toolStrip1
             // 
@@ -140,6 +143,7 @@
             tsbDetalles.Size = new Size(52, 59);
             tsbDetalles.Text = "Detalles";
             tsbDetalles.TextImageRelation = TextImageRelation.ImageAboveText;
+            tsbDetalles.Click += tsbDetalles_Click;
             // 
             // statusStrip1
             // 
@@ -149,6 +153,11 @@
             statusStrip1.Size = new Size(800, 22);
             statusStrip1.TabIndex = 5;
             statusStrip1.Text = "statusStrip1";
+            // 
+            // LblStatus
+            // 
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 17);
             // 
             // dgvDatos
             // 
@@ -198,11 +207,6 @@
             colTipo.Name = "colTipo";
             colTipo.ReadOnly = true;
             // 
-            // LblStatus
-            // 
-            LblStatus.Name = "LblStatus";
-            LblStatus.Size = new Size(0, 17);
-            // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -214,6 +218,7 @@
             Name = "FrmProductos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Listado de Productos";
+            Load += FrmProductos_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);

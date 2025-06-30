@@ -83,6 +83,7 @@
             BtnOK.Text = "OK";
             BtnOK.TextImageRelation = TextImageRelation.ImageAboveText;
             BtnOK.UseVisualStyleBackColor = true;
+            BtnOK.Click += BtnOK_Click;
             // 
             // TxtNombre
             // 
@@ -199,6 +200,7 @@
             Controls.Add(label1);
             Name = "FrmDetalles";
             Text = "FrmDetalles";
+            Load += FrmDetalles_Load;
             ResumeLayout(false);
             PerformLayout();
         }
