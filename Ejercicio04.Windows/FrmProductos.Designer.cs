@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            splitContainer1 = new SplitContainer();
-            dgvDatos = new DataGridView();
             TsbNuevo = new ToolStripButton();
             TsbBorrar = new ToolStripButton();
             TsbEditar = new ToolStripButton();
@@ -40,53 +38,23 @@
             toolStripSeparator2 = new ToolStripSeparator();
             TsbCerrar = new ToolStripButton();
             toolStrip1 = new ToolStrip();
+            tsbDetalles = new ToolStripButton();
+            statusStrip1 = new StatusStrip();
+            dgvDatos = new DataGridView();
             colCodigo = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colPrecio = new DataGridViewTextBoxColumn();
             colStock = new DataGridViewTextBoxColumn();
             colTipo = new DataGridViewTextBoxColumn();
-            tsbDetalles = new ToolStripButton();
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
-            splitContainer1.Panel1.SuspendLayout();
-            splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            LblStatus = new ToolStripStatusLabel();
             toolStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 62);
-            splitContainer1.Name = "splitContainer1";
-            splitContainer1.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.Controls.Add(dgvDatos);
-            splitContainer1.Size = new Size(800, 555);
-            splitContainer1.SplitterDistance = 444;
-            splitContainer1.TabIndex = 5;
-            // 
-            // dgvDatos
-            // 
-            dgvDatos.AllowUserToAddRows = false;
-            dgvDatos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colNombre, colPrecio, colStock, colTipo });
-            dgvDatos.Dock = DockStyle.Fill;
-            dgvDatos.Location = new Point(0, 0);
-            dgvDatos.Name = "dgvDatos";
-            dgvDatos.ReadOnly = true;
-            dgvDatos.RowHeadersVisible = false;
-            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDatos.Size = new Size(800, 444);
-            dgvDatos.TabIndex = 2;
             // 
             // TsbNuevo
             // 
-            TsbNuevo.Image = Properties.Resources.Nuevo;
+            TsbNuevo.Image = Ejercicio04W.Windows.Properties.Resources.Nuevo;
             TsbNuevo.ImageScaling = ToolStripItemImageScaling.None;
             TsbNuevo.ImageTransparentColor = Color.Magenta;
             TsbNuevo.Name = "TsbNuevo";
@@ -96,7 +64,7 @@
             // 
             // TsbBorrar
             // 
-            TsbBorrar.Image = Properties.Resources.Delete;
+            TsbBorrar.Image = Ejercicio04W.Windows.Properties.Resources.Delete;
             TsbBorrar.ImageScaling = ToolStripItemImageScaling.None;
             TsbBorrar.ImageTransparentColor = Color.Magenta;
             TsbBorrar.Name = "TsbBorrar";
@@ -106,7 +74,7 @@
             // 
             // TsbEditar
             // 
-            TsbEditar.Image = Properties.Resources.Edit;
+            TsbEditar.Image = Ejercicio04W.Windows.Properties.Resources.Edit1;
             TsbEditar.ImageScaling = ToolStripItemImageScaling.None;
             TsbEditar.ImageTransparentColor = Color.Magenta;
             TsbEditar.Name = "TsbEditar";
@@ -121,7 +89,7 @@
             // 
             // TsbFiltrar
             // 
-            TsbFiltrar.Image = Properties.Resources.filter_40px;
+            TsbFiltrar.Image = Ejercicio04W.Windows.Properties.Resources.filter_40px;
             TsbFiltrar.ImageScaling = ToolStripItemImageScaling.None;
             TsbFiltrar.ImageTransparentColor = Color.Magenta;
             TsbFiltrar.Name = "TsbFiltrar";
@@ -131,7 +99,7 @@
             // 
             // TsbActualizar
             // 
-            TsbActualizar.Image = Properties.Resources.Update;
+            TsbActualizar.Image = Ejercicio04W.Windows.Properties.Resources.Update;
             TsbActualizar.ImageScaling = ToolStripItemImageScaling.None;
             TsbActualizar.ImageTransparentColor = Color.Magenta;
             TsbActualizar.Name = "TsbActualizar";
@@ -146,7 +114,7 @@
             // 
             // TsbCerrar
             // 
-            TsbCerrar.Image = Properties.Resources.Close;
+            TsbCerrar.Image = Ejercicio04W.Windows.Properties.Resources.Close;
             TsbCerrar.ImageScaling = ToolStripItemImageScaling.None;
             TsbCerrar.ImageTransparentColor = Color.Magenta;
             TsbCerrar.Name = "TsbCerrar";
@@ -162,6 +130,42 @@
             toolStrip1.Size = new Size(800, 62);
             toolStrip1.TabIndex = 4;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbDetalles
+            // 
+            tsbDetalles.Image = Ejercicio04W.Windows.Properties.Resources.details_40px;
+            tsbDetalles.ImageScaling = ToolStripItemImageScaling.None;
+            tsbDetalles.ImageTransparentColor = Color.Magenta;
+            tsbDetalles.Name = "tsbDetalles";
+            tsbDetalles.Size = new Size(52, 59);
+            tsbDetalles.Text = "Detalles";
+            tsbDetalles.TextImageRelation = TextImageRelation.ImageAboveText;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { LblStatus });
+            statusStrip1.Location = new Point(0, 595);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 5;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // dgvDatos
+            // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colNombre, colPrecio, colStock, colTipo });
+            dgvDatos.Dock = DockStyle.Fill;
+            dgvDatos.Location = new Point(0, 62);
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
+            dgvDatos.RowHeadersVisible = false;
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDatos.Size = new Size(800, 533);
+            dgvDatos.TabIndex = 6;
             // 
             // colCodigo
             // 
@@ -194,39 +198,32 @@
             colTipo.Name = "colTipo";
             colTipo.ReadOnly = true;
             // 
-            // tsbDetalles
+            // LblStatus
             // 
-            tsbDetalles.Image = Properties.Resources.details_40px;
-            tsbDetalles.ImageScaling = ToolStripItemImageScaling.None;
-            tsbDetalles.ImageTransparentColor = Color.Magenta;
-            tsbDetalles.Name = "tsbDetalles";
-            tsbDetalles.Size = new Size(52, 59);
-            tsbDetalles.Text = "Detalles";
-            tsbDetalles.TextImageRelation = TextImageRelation.ImageAboveText;
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 17);
             // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 617);
-            Controls.Add(splitContainer1);
+            Controls.Add(dgvDatos);
+            Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
             Name = "FrmProductos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Chocolates";
-            splitContainer1.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
-            splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            Text = "Listado de Productos";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private SplitContainer splitContainer1;
-        private DataGridView dgvDatos;
         private ToolStripButton TsbNuevo;
         private ToolStripButton TsbBorrar;
         private ToolStripButton TsbEditar;
@@ -236,11 +233,14 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton TsbCerrar;
         private ToolStrip toolStrip1;
+        private ToolStripButton tsbDetalles;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel LblStatus;
+        private DataGridView dgvDatos;
         private DataGridViewTextBoxColumn colCodigo;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colPrecio;
         private DataGridViewTextBoxColumn colStock;
         private DataGridViewTextBoxColumn colTipo;
-        private ToolStripButton tsbDetalles;
     }
 }
