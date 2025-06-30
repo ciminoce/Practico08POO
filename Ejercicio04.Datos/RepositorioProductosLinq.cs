@@ -104,6 +104,22 @@ namespace Ejercicio04.Datos
             productos.Add(producto);
         }
 
+        public void Editar(Producto producto)
+        {
+            Producto? productoInDb = this[producto.Codigo];
+            if (productoInDb is null) return;
+            var index = productos.IndexOf(productoInDb);
+            productos[index] = producto;
+        }
+
+        public void Eliminar(string codigo)
+        {
+            Producto? productoInDb = this[codigo];
+            if (productoInDb is null) return;
+            productos.Remove(productoInDb);
+
+        }
+
         public bool Existe(string codigo)
         {
             return this[codigo] != null;

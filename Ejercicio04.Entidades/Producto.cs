@@ -10,7 +10,10 @@ namespace Ejercicio04.Entidades
         public decimal PrecioBase { get; set; }
         public int Stock { get; set; }
 
-        public abstract decimal CalcularPrecioFinal();
+        public virtual decimal CalcularPrecioFinal()
+        {
+            return PrecioBase;
+        }
 
         public string InformarDatosBasicos()
         {
